@@ -26,7 +26,7 @@ def truncate(oligo,is5prime,length):
 		return oligo[length+1:]
 
 ####parse the input file, generate key value pair of each sequences
-def read_fastafiles(fastaFile):
+def read_dnaFastas(fastaFile):
 	Infile1 = open(fastaFile, 'r')
 	germName=''
 	germSeq=''
@@ -67,7 +67,7 @@ Outfile3 = open(Outfilename3, 'w')
 
 ############# main ###############
 allFasta={}
-allFasta = read_fastafiles(args.input)
+allFasta = read_dnaFastas(args.input)
 trunFasta={}
 unique_trunFasta={}
 unique_Oligo=[]
