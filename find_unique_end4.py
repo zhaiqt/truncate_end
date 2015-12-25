@@ -2,7 +2,7 @@
 import argparse
 
 parser = argparse.ArgumentParser( prog='find_unique_end',description="find the either 5' or 3' unique seqs", epilog='python find_unique_end.py -i inputfile -o outputfile')
-parser.add_argument ('-i','--input',help='Input File Name', default="mouse_VH.txt")
+parser.add_argument ('-i','--input',help='Input File Name', default="./data/mouse_VH.txt")
 #parser.add_argument('-5','--head', help="trim 5' region", action='store_true')
 #parser.add_argument('-o','--output',help='Output File Name',required="true")
 parser.add_argument('-3','--direction', help="trim 3' region", action='store_false', default=True)
@@ -57,11 +57,11 @@ Outfilename1=args.input.rstrip(".txt")+"_fulllength_noN"+str(args.primerlen)+".t
 Outfile1 = open(Outfilename1, 'w')
 
 if args.direction == True:
-	Outfilename2="Sense_primerlen_"+str(args.primerlen)+args.input
-	Outfilename3="Unique_5prime_lenth_"+str(args.primerlen)+args.input
+	Outfilename2=args.input.rstrip('.txt')+"Sense_primerlen_"+str(args.primerlen)
+	Outfilename3=args.input.rstrip('.txt')+"Unique_5prime_lenth_"+str(args.primerlen)
 else:
-	Outfilename2="AntiSense_primerlen_"+str(args.primerlen)+args.input
-	Outfilename3="Unique_3prime_lenth_"+str(args.primerlen)+args.input
+	Outfilename2=args.input.rstrip('.txt')+"AntiSense_primerlen_"+str(args.primerlen)
+	Outfilename3=args.input('.txt')+"Unique_3prime_lenth_"+str(args.primerlen)
 Outfile2 = open(Outfilename2, 'w')
 Outfile3 = open(Outfilename3, 'w')
 
@@ -74,7 +74,7 @@ unique_Oligo=[]
 all_Oligo=[]
 
 for key in allFasta:
-	Outfile1.write(str(key) + "\t" + allFasta[key] + '\n')
+	Outfile1.write('>'+str(key) + "\t" + allFasta[key] + '\n')
 	if not allFasta[key].upper().startswith('N'):
 		
 		currentOligo= truncate(allFasta[key],args.direction,args.primerlen) 
