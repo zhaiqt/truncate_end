@@ -1,7 +1,7 @@
 #import sys
 import argparse
 
-parser = argparse.ArgumentParser( prog='find_unique_end',description="find the either 5' or 3' unique seqs", epilog='python find_unique_end -i inputfile -o outputfile')
+parser = argparse.ArgumentParser( prog='find_unique_end',description="find the either 5' or 3' unique seqs", epilog='python find_unique_end.py -i inputfile -o outputfile')
 parser.add_argument ('-i','--input',help='Input File Name', default="mouse_VH.txt")
 #parser.add_argument('-5','--head', help="trim 5' region", action='store_true')
 #parser.add_argument('-o','--output',help='Output File Name',required="true")
